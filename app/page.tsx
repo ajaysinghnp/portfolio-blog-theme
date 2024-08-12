@@ -7,7 +7,8 @@ import Social from "@/components/social";
 const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contacts" },
 ];
 
 export default function Home() {
@@ -43,7 +44,7 @@ export default function Home() {
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-      <div className="my-16 text-center animate-fade-in">
+      <div className="my-12 text-center animate-fade-in">
         <h2 className="text-md text-zinc-500 ">
           "An ultimate Success is always hidden behind the first failure" - {" "}
           <Link
@@ -56,7 +57,15 @@ export default function Home() {
         </h2>
       </div>
 
+
       <Social />
+
+      <Link
+        href="/contacts"
+        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-500 animate-fade-in hover:text-zinc-100"
+      >
+        Let's Talk
+      </Link>
 
       <div className="absolute bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">
         <p className="text-center">

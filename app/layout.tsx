@@ -1,50 +1,69 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "@/app/globals.css";
-import Header from "@/components/header";
-import { cn } from "@/utilities/tailwind";
-import Footer from "@/components/footer";
 
-const popins = Poppins({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
+import "@/app/globals.css";
+import { calSans } from "@/components/local-fonts";
 
 export const metadata: Metadata = {
-  title: "Ajay Singh",
+  title: {
+    default: "Ajay Singh",
+    template: "%s | Ajay Singh",
+  },
   description: "A Personal Portfolio for Ajay Singh.",
+  openGraph: {
+    title: "Ajay Singh",
+    description:
+      "A Personal Portfolio for Ajay Singh.",
+    url: "https://ajaysingh.com.np",
+    siteName: "Ajay Singh",
+    images: [
+      {
+        url: "https://ajaysingh.com.np/og.png",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "Ajay Singh",
+    card: "summary_large_image",
+  },
+  icons: {
+    shortcut: "/images/logo-color.png",
+  },
 };
+
+// const popins = Poppins({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={cn(
-        popins.className,
-        "min-h-screen flex flex-col",
-        "bg-gray-200",
-      )}>
-        <div className={
-          cn(
-            "header",
-            // "bg-slate-800",
-            "fixed w-full flex justify-center items-center",
-          )}>
-          <Header />
-        </div>
-        <div className={cn(
-          "content",
-          "h-full mt-24",
-          // "bg-slate-600"
-        )}>
-          {children}
-        </div>
-        <div className={cn(
-          "footer",
-          "fixed bottom-0 right-0 left-0",
-        )}>
-          <Footer />
-        </div>
+    <html lang="en" className={calSans.className}>
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+      <body
+        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
+      >
+        {children}
       </body>
     </html>
   );

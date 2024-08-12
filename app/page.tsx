@@ -46,7 +46,7 @@ export default function Home() {
 
       <div className="my-12 text-center animate-fade-in">
         <h2 className="text-md text-zinc-500 ">
-          "An ultimate Success is always hidden behind the first failure" - {" "}
+          &quote;An ultimate Success is always hidden behind the first failure&quote; - {" "}
           <Link
             target="_blank"
             href="/blog"
@@ -64,7 +64,7 @@ export default function Home() {
         href="/contacts"
         className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-500 animate-fade-in hover:text-zinc-100"
       >
-        Let's Talk
+        Let&rsquo;s Talk
       </Link>
 
       <div className="absolute bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">

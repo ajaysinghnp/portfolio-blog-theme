@@ -38,7 +38,7 @@ export default function Home() {
 
       <h1
         className={[
-          "py-1.5 px-0.5 z-10 text-4xl text-transparent duration-1000",
+          "py-1.5 px-0.5 z-10 text-4xl text-transparent",
           "bg-white cursor-default text-edge-outline animate-title",
           "font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text",
           angelina.className,
@@ -67,7 +67,7 @@ export default function Home() {
 
       <Link
         href="/contacts"
-        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-500 animate-fade-in hover:text-zinc-100"
+        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-5000 animate-fade-in hover:text-zinc-100"
       >
         Let &rsquo; s Talk
       </Link>

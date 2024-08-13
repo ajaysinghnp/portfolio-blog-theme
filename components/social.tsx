@@ -41,7 +41,7 @@ const socials = [
   },
   {
     icon: <Github size={20} />,
-    href: "https://github.com/mentormaya",
+    href: "https://github.com/mentormaya/jekyll-theme",
     label: "Github",
     handle: "mentormaya",
   },
@@ -59,7 +59,7 @@ const Social = ({ icononly = true }: Props) => {
           href={s.href}
           key={s.href}
           rel="noopener noreferrer"
-          title={`Connect with me @${s.handle}`}
+          title={s.label == "Github" ? `Explore SourceCode @${s.label}` : `Connect with me @${s.handle}`}
           target="_blank"
           className="relative flex flex-col items-center duration-700 group md:gap-8 px-4"
         >

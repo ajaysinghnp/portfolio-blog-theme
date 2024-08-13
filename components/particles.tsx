@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { useMousePosition } from "@/utilities/mouse";
+import React, { useRef, useEffect } from "react";
+import { useMousePosition } from "@/lib/mouse";
 
 interface ParticlesProps {
   className?: string;
@@ -38,7 +38,7 @@ export default function Particles({
     return () => {
       window.removeEventListener("resize", initCanvas);
     };
-  }, []);
+  });
 
   useEffect(() => {
     onMouseMove();

@@ -1,5 +1,5 @@
 import React from 'react'
-import { cn } from '../utilities/tailwind'
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { Homemade_Apple } from 'next/font/google'
 

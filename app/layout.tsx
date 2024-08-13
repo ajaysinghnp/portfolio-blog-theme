@@ -3,21 +3,25 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import { calSans } from "@/components/local-fonts";
 
+const title = "Ajay Singh";
+const description = "A Personal Portfolio for Ajay Singh.";
+// const url = "https://ajaysingh.com.np";
+const url = "/";
+
 export const metadata: Metadata = {
   title: {
-    default: "Ajay Singh",
-    template: "%s | Ajay Singh",
+    default: title,
+    template: `%s | ${title}`,
   },
-  description: "A Personal Portfolio for Ajay Singh.",
+  description: description,
   openGraph: {
-    title: "Ajay Singh",
-    description:
-      "A Personal Portfolio for Ajay Singh.",
-    url: "https://ajaysingh.com.np",
+    title: title,
+    description: description,
+    url: url,
     siteName: "Ajay Singh",
     images: [
       {
-        url: "https://ajaysingh.com.np/og.png",
+        url: `${url}/images/author.png`,
         width: 1920,
         height: 1080,
       },
@@ -55,13 +59,29 @@ export default function RootLayout({
   return (
     <html lang="en" className={calSans.className}>
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicon/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
+        className={`bg-black ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        }`}
       >
         {children}
       </body>

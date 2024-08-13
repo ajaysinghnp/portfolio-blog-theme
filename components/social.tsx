@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Facebook, Github, Instagram, Mail, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Mail,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
 const socials = [
   {
@@ -41,7 +48,7 @@ const socials = [
 ];
 
 export interface Props {
-  icononly?: boolean
+  icononly?: boolean;
 }
 
 const Social = ({ icononly = true }: Props) => {
@@ -51,10 +58,11 @@ const Social = ({ icononly = true }: Props) => {
         <Link
           href={s.href}
           key={s.href}
+          rel="noopener noreferrer"
+          title={`Connect with me @${s.handle}`}
           target="_blank"
           className="relative flex flex-col items-center duration-700 group md:gap-8 px-4"
         >
-
           <span className="relative z-10 flex items-center justify-center w-12 h-12 text-md duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
             {s.icon}
           </span>{" "}
@@ -71,7 +79,7 @@ const Social = ({ icononly = true }: Props) => {
         </Link>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Social
+export default Social;

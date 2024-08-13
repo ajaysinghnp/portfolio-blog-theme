@@ -17,13 +17,14 @@ export default function Home() {
       <nav className="animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="duration-500 text-zinc-500 hover:text-zinc-300"
-            >
-              {item.name}
-            </Link>
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="duration-500 text-zinc-500 hover:text-zinc-300"
+              >
+                {item.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>
@@ -76,7 +77,9 @@ export default function Home() {
           Made with ❤️ in 🇳🇵 and hosted by{" "}
           <Link
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com"
+            title="GitHub"
             className="duration-500 hover:text-zinc-300"
           >
             GitHub

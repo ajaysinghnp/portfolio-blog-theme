@@ -7,30 +7,26 @@ import { Card } from "@/components/card"; // Ensure you have the correct path fo
 import { Article } from "./article"; // Ensure you have the correct path for Article
 import Link from "next/link"; // Assuming you are using Next.js
 import { Eye } from "lucide-react"; // Ensure you have the correct path for Eye
-
-export interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  published: boolean;
-}
+import { GIT_USERNAME, Project, Repo } from "@/types/github";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [views, setViews] = useState({});
 
   useEffect(() => {
     async function fetchProjects() {
       try {
         const { data } = await axios.get(
-          "https://api.github.com/users/mentormaya/repos"
+          `https://api.github.com/users/${GIT_USERNAME}/repos`
         );
-        const transformedProjects: Project[] = data.map((repo: any) => ({
-          slug: repo.full_name,
+        const transformedProjects: Project[] = data.map((repo: Repo) => ({
+          name: repo.name,
           title: repo.name,
+          url: repo.html_url,
           description: repo.description,
           date: repo.created_at,
+          updated_at: repo.updated_at,
+          pushed_at: repo.pushed_at,
+          private: repo.private,
           published: true,
         }));
 
@@ -48,19 +44,19 @@ export default function ProjectsPage() {
   }
 
   const featured = projects.find(
-    (project) => project.slug === "mentormaya/mentormaya.github.io"
+    (project) => project.name === "mentormaya.github.io"
   )!;
-  const top2 = projects.find((project) => project.slug === "mentormaya/blog")!;
+  const top2 = projects.find((project) => project.name === "blog")!;
   const top3 = projects.find(
-    (project) => project.slug === "mentormaya/addons-example"
+    (project) => project.name === "addons-example"
   )!;
   const sorted = projects
     .filter((p) => p.published)
     .filter(
       (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug
+        project.name !== featured.name &&
+        project.name !== top2.name &&
+        project.name !== top3.name
     )
     .sort(
       (a, b) =>
@@ -84,7 +80,7 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
-            <Link href={`/projects/${featured.slug}`}>
+            <Link href={`/projects/${featured.name}`}>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -126,7 +122,7 @@ export default function ProjectsPage() {
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
-              <Card key={project.slug}>
+              <Card key={project.name}>
                 <Article project={project} views={0} />
               </Card>
             ))}
@@ -139,7 +135,7 @@ export default function ProjectsPage() {
             {sorted
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
-                <Card key={project.slug}>
+                <Card key={project.name}>
                   <Article project={project} views={0} />
                 </Card>
               ))}
@@ -148,7 +144,7 @@ export default function ProjectsPage() {
             {sorted
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
-                <Card key={project.slug}>
+                <Card key={project.name}>
                   <Article project={project} views={0} />
                 </Card>
               ))}
@@ -157,7 +153,7 @@ export default function ProjectsPage() {
             {sorted
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
-                <Card key={project.slug}>
+                <Card key={project.name}>
                   <Article project={project} views={0} />
                 </Card>
               ))}

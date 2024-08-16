@@ -2,11 +2,12 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Link from "next/link"; // Assuming you are using Next.js
+import { Eye } from "lucide-react"; // Ensure you have the correct path for Eye
+
 import { Navigation } from "@/components/nav"; // Ensure you have the correct path for Navigation
 import { Card } from "@/components/card"; // Ensure you have the correct path for Card
 import { Article } from "./article"; // Ensure you have the correct path for Article
-import Link from "next/link"; // Assuming you are using Next.js
-import { Eye } from "lucide-react"; // Ensure you have the correct path for Eye
 import { GIT_USERNAME, Project, Repo } from "@/types/github";
 
 export default function ProjectsPage() {
@@ -51,7 +52,6 @@ export default function ProjectsPage() {
     (project) => project.name === "addons-example"
   )!;
   const sorted = projects
-    .filter((p) => p.published)
     .filter(
       (project) =>
         project.name !== featured.name &&

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     url: url,
-    siteName: "Ajay Singh",
+    siteName: title,
     images: [
       {
         url: `${url}/images/author.png`,
@@ -41,11 +41,11 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Ajay Singh",
+    title: title,
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/images/logo-color.png",
+    shortcut: `${url}/images/logo-color.png`,
   },
 };
 
@@ -79,9 +79,8 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
-        className={`bg-black ${
-          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-        }`}
+        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+          }`}
       >
         {children}
       </body>

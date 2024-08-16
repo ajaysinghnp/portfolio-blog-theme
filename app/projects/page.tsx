@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link"; // Assuming you are using Next.js
 import { Eye } from "lucide-react"; // Ensure you have the correct path for Eye
@@ -8,36 +7,17 @@ import { Eye } from "lucide-react"; // Ensure you have the correct path for Eye
 import { Navigation } from "@/components/nav"; // Ensure you have the correct path for Navigation
 import { Card } from "@/components/card"; // Ensure you have the correct path for Card
 import { Article } from "./article"; // Ensure you have the correct path for Article
-import { GIT_USERNAME, Project, Repo } from "@/types/github";
+import { Project } from "@/types/github";
+import { fetchProjects } from "@/lib/projects";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    async function fetchProjects() {
-      try {
-        const { data } = await axios.get(
-          `https://api.github.com/users/${GIT_USERNAME}/repos`
-        );
-        const transformedProjects: Project[] = data.map((repo: Repo) => ({
-          name: repo.name,
-          title: repo.name,
-          url: repo.html_url,
-          description: repo.description,
-          date: repo.created_at,
-          updated_at: repo.updated_at,
-          pushed_at: repo.pushed_at,
-          private: repo.private,
-          published: true,
-        }));
-
-        setProjects(transformedProjects);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    }
-
-    fetchProjects();
+    (async () => {
+      const ps: Project[] = await fetchProjects();
+      setProjects(ps);
+    })();
   }, []);
 
   if (projects.length === 0) {

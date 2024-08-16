@@ -26,7 +26,7 @@ export const fetchProjects = async (): Promise<Project[]> => {
 export const fetchProject = async (slug: string): Promise<Project | null> => {
   try {
     const { data: repo } = await axios.get(
-      `https://api.github.com/repos/${GIT_USERNAME}/blog`
+      `https://api.github.com/repos/${GIT_USERNAME}/${slug}`
     );
 
     return {
@@ -42,7 +42,7 @@ export const fetchProject = async (slug: string): Promise<Project | null> => {
       published: true,
     };
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error(`Error fetching project [${slug}]: ${error}`);
     return null;
   }
 };

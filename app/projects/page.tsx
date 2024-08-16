@@ -21,7 +21,7 @@ export default function ProjectsPage() {
   }, []);
 
   if (projects.length === 0) {
-    return <div>Loading...</div>;
+    return <div className="text-white relative h-dvh flex justify-center items-center">Either Project is Loading or Projects couldnot be loaded!</div>;
   }
 
   const featured = projects.find(

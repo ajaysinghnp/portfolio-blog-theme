@@ -106,6 +106,19 @@ const config = {
             opacity: "0%",
           },
         },
+        slideUp: {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        drawLine: {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        moveBlob: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0)" },
+        },
         title: {
           "0%": {
             "line-height": "0%",
@@ -138,6 +151,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         wiggle: "wiggle 2s ease-in-out infinite",
+        slideUp: "slideUp 0.5s ease-out",
+        drawLine: "drawLine 2s ease-in-out",
+        moveBlob: "moveBlob 5s infinite linear",
       },
     },
   },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "@/app/globals.css";
 import { calSans } from "@/components/local-fonts";
-import { ThemeProvider } from "./providers/theme";
+import { ThemeProvider } from "./(root)/providers/theme";
 
 const title = "Ajay Singh";
 const description = "A Personal Portfolio for Ajay Singh.";

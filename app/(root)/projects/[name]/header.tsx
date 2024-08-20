@@ -100,6 +100,9 @@ export const Header: React.FC<Props> = ({ project, views }) => {
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
               {project.title.toLocaleUpperCase()}
             </h1>
+            <p className="mt-6 text-lg text-white sm:text-xl font-semibold leading-8">
+              {project.description}
+            </p>
           </div>
 
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">

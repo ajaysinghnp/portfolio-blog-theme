@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   Facebook,
   Github,
@@ -7,45 +8,52 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import { socialMedia } from "@/data/social";
+import type { Social } from "@/types/social";
 
-const socials = [
-  {
-    icon: <Facebook size={20} />,
-    href: "https://www.facebook.com/ajaykumarsingh.np",
-    label: "Facebook",
-    handle: "@ajaykumarsingh.np",
-  },
-  {
-    icon: <Instagram size={20} />,
-    href: "https://www.instagram.com/ajaykumarsingh.np",
-    label: "Instagram",
-    handle: "@ajaykumarsingh.np",
-  },
-  {
-    icon: <Twitter size={20} />,
-    href: "https://x.com/singh_ajaykumar",
-    label: "Twitter",
-    handle: "@singh_ajaykumar",
-  },
-  {
-    icon: <Mail size={20} />,
-    href: "mailto:admin@ajaysingh.com.np",
-    label: "Email",
-    handle: "admin@ajaysingh.com.np",
-  },
-  {
-    icon: <Youtube size={20} />,
-    href: "https://www.youtube.com/@ajay__singh",
-    label: "YouTube",
-    handle: "ajay__singh",
-  },
-  {
-    icon: <Github size={20} />,
-    href: "https://github.com/mentormaya/jekyll-theme",
-    label: "Github",
-    handle: "mentormaya",
-  },
-];
+export const socials: Social[] = [];
+
+if (socialMedia.facebook) socials.push({
+  icon: <Facebook size={20} />,
+  href: socialMedia.facebook.href,
+  label: socialMedia.facebook.label,
+  handle: socialMedia.facebook.handle,
+});
+
+if (socialMedia.instagram) socials.push({
+  icon: <Instagram size={20} />,
+  href: socialMedia.instagram.href,
+  label: socialMedia.instagram.label,
+  handle: socialMedia.instagram.handle,
+});
+
+if (socialMedia.twitter) socials.push({
+  icon: <Twitter size={20} />,
+  href: socialMedia.twitter.href,
+  label: socialMedia.twitter.label,
+  handle: socialMedia.twitter.handle,
+});
+
+if (socialMedia.email) socials.push({
+  icon: <Mail size={20} />,
+  href: socialMedia.email.href,
+  label: socialMedia.email.label,
+  handle: socialMedia.email.handle,
+});
+
+if (socialMedia.youtube) socials.push({
+  icon: <Youtube size={20} />,
+  href: socialMedia.youtube.href,
+  label: socialMedia.youtube.label,
+  handle: socialMedia.youtube.handle,
+});
+
+if (socialMedia.github) socials.push({
+  icon: <Github size={20} />,
+  href: socialMedia.github.href,
+  label: socialMedia.github.label,
+  handle: socialMedia.github.handle,
+});
 
 export interface Props {
   icononly?: boolean;

@@ -3,7 +3,7 @@ import { FC } from "react";
 
 const Timeline: FC = () => {
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white py-12 px-6">
+    <div className="relative text-white py-12 px-6">
       {/* Central Timeline Line with Animated Blob */}
       <div className="absolute left-1/2 top-0 transform -translate-x-1/2 w-1 bg-gray-700 animate-drawLine">
         {/* Animated Blob */}

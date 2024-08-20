@@ -46,3 +46,20 @@ export const fetchProject = async (slug: string): Promise<Project | null> => {
     return null;
   }
 };
+
+export const fetchProjectReadme = async (project: string): Promise<string> => {
+  try {
+    const { data } = await axios.get(
+      `https://raw.githubusercontent.com/${GIT_USERNAME}/${project}/master/README.md`,
+      {
+        headers: {
+          Accept: "application/vnd.github.v3.raw",
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error(`Error fetching project readme [${project}]: ${error}`);
+    return "Error fetching README.md";
+  }
+};

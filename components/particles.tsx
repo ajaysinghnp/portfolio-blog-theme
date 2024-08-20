@@ -42,10 +42,12 @@ export default function Particles({
 
   useEffect(() => {
     onMouseMove();
+    //eslint-disable-next-line
   }, [mousePosition.x, mousePosition.y]);
 
   useEffect(() => {
     initCanvas();
+    //eslint-disable-next-line
   }, [refresh]);
 
   const initCanvas = () => {

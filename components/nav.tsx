@@ -1,9 +1,11 @@
 "use client";
-import { navigation } from "@/data/navigation";
-import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+
+import { navigation } from "@/data/navigation";
 import { angelina } from "@/components/local-fonts";
+import LogoImage from "@/public/favicon/favicon-32x32.png";
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -46,7 +48,7 @@ export const Navigation: React.FC = () => {
             href="/"
             className="flex gap-2 duration-200 text-zinc-300 hover:text-zinc-100"
           >
-            <img src="/favicon/favicon-32x32.png" alt="Logo" width={24} height={24} />
+            <Image src={LogoImage} alt="Logo" width={24} height={24} />
             <span className={angelina.className}>Ajay</span>
           </Link>
         </div>

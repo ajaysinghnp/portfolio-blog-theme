@@ -1,14 +1,13 @@
-import Timeline from "@/components/timeline";
-
-// pages/index.tsx
 const ResumePage = () => {
   return (
-    <div className="text-white min-h-screen">
-      <header className="text-center py-12">
-        <h1 className="text-4xl font-bold mb-4">My Timeline</h1>
-      </header>
-      <Timeline />
-    </div>
+    <main className="flex flex-1 gap-4">
+      <div className="w-[35%] max-w-[24rem] bg-zinc-900 rounded p-4">
+        <h1 className="text-2xl w-full text-center">
+          Ajay <span className="text-white">Singh</span>
+        </h1>
+      </div>
+      <div className="w-full bg-zinc-900 rounded p-4">Right Pannel</div>
+    </main>
   );
 };
 

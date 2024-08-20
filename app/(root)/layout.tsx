@@ -7,10 +7,10 @@ export default function ProjectsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       <div className="relative my-6 ">
         <Navigation gitTheme />
-        {children}
+        <div className="container pt-8 mx-auto lg:pt-16 px-2">{children}</div>
         <div className="fixed bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">
           <p className="text-center">
             Made with ❤️ in <span className="text-2xl">🇳🇵</span> and hosted by{" "}

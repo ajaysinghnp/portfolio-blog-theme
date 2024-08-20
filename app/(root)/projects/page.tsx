@@ -10,23 +10,33 @@ import { Project } from "@/types/github";
 import { fetchProjects } from "@/lib/projects";
 
 export default function ProjectsPage() {
-  const { data: projects, error, isLoading } = useSWR<Project[]>("projects", fetchProjects);
+  const {
+    data: projects,
+    error,
+    isLoading,
+  } = useSWR<Project[]>("projects", fetchProjects);
 
   if (error) {
-    return <div className="relative bg-black h-dvh flex justify-center items-center">Something happened while fetching Projects!</div>;
+    return (
+      <div className="relative bg-black h-dvh flex justify-center items-center">
+        Something happened while fetching Projects!
+      </div>
+    );
   }
 
   if (isLoading) {
-    return <div className="relative bg-black h-dvh flex justify-center items-center">Loading Projects...</div>;
+    return (
+      <div className="relative bg-black h-dvh flex justify-center items-center">
+        Loading Projects...
+      </div>
+    );
   }
 
   const featured = projects?.find(
     (project) => project.name === "mentormaya.github.io"
   )!;
   const top2 = projects?.find((project) => project.name === "blog")!;
-  const top3 = projects?.find(
-    (project) => project.name === "addons-example"
-  )!;
+  const top3 = projects?.find((project) => project.name === "addons-example")!;
   const sorted = projects
     ?.filter(
       (project) =>
@@ -41,13 +51,15 @@ export default function ProjectsPage() {
     );
 
   return (
-    <main className="px-6 pt-8 mx-auto space-y-2 max-w-7xl lg:px-8 md:space-y-8 md:pt-8 lg:pt-16">
+    <main className="space-y-2">
       <div className="max-w-2xl mx-auto lg:mx-0">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Open Source Projects
         </h2>
         <p className="mt-4 text-zinc-400">
-          Some of my open source projects that I have worked on in the past and currently woking on. You can explore the projects and contribute to them on GitHub by following the links below.
+          Some of my open source projects that I have worked on in the past and
+          currently woking on. You can explore the projects and contribute to
+          them on GitHub by following the links below.
         </p>
       </div>
       <div className="w-full h-px bg-zinc-800" />
@@ -72,9 +84,9 @@ export default function ProjectsPage() {
                     </div>
                     <span className="flex items-center gap-1 text-xs text-zinc-500">
                       <Eye className="w-4 h-4" />{" "}
-                      {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                        0
-                      )}
+                      {Intl.NumberFormat("en-US", {
+                        notation: "compact",
+                      }).format(0)}
                     </span>
                   </div>
 
@@ -137,7 +149,9 @@ export default function ProjectsPage() {
           </div>
         </>
       ) : (
-        <div className="relative flex justify-start items-center text-white">Could not Load the Projects</div>
+        <div className="relative flex justify-start items-center text-white">
+          Could not Load the Projects
+        </div>
       )}
     </main>
   );

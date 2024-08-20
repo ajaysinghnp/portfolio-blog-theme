@@ -9,6 +9,9 @@ type Props = {
 };
 
 export const Article: React.FC<Props> = ({ project, views }) => {
+  if (!project) {
+    return <div className="relativeflex justify-center items-center text-white">Could not Load the Project</div>;
+  }
   return (
     <Link href={`/projects/${project.name}`}>
       <article className="p-4 md:p-8">

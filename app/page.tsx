@@ -3,18 +3,13 @@ import Link from "next/link";
 import { angelina } from "@/components/local-fonts";
 import Particles from "@/components/particles";
 import Social from "@/components/social";
-
-const navigation = [
-  { name: "Resume", href: "/resume" },
-  { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
+import { ModeToggle } from "@/components/theme-toggle";
+import { navigation } from "@/data/navigation";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+    <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+      <ModeToggle variant={"ghost"} className="absolute top-4 right-4 animate-fade-in bg-inherit text-white hover:bg-slate-100/80" />
       <nav className="animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
@@ -75,7 +70,7 @@ export default function Home() {
 
       <div className="absolute bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">
         <p className="text-center">
-          Made with ❤️ in 🇳🇵 and hosted by{" "}
+          Made with ❤️ in <span className="text-2xl">🇳🇵</span> and hosted by{" "}
           <Link
             target="_blank"
             rel="noopener noreferrer"

@@ -43,10 +43,10 @@ export const Header: React.FC<Props> = ({ project, views }) => {
   return (
     <header
       ref={ref}
-      className="relative isolate overflow-hidden bg-gradient-to-tl from-black via-zinc-900 to-black"
+      className="relative isolate overflow-hidden bg-transparent"
     >
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${isIntersecting
+        className={`fixed inset-x-0 top-12 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${isIntersecting
           ? "bg-zinc-900/0 border-transparent"
           : "bg-white/10  border-zinc-200 lg:border-transparent"
           }`}
@@ -98,11 +98,8 @@ export const Header: React.FC<Props> = ({ project, views }) => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
-              {project.title}
+              {project.title.toLocaleUpperCase()}
             </h1>
-            <p className="mt-6 text-lg leading-8 text-zinc-300">
-              {project.description}
-            </p>
           </div>
 
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">

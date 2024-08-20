@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "@/app/globals.css";
 import { calSans } from "@/components/local-fonts";
+import { ThemeProvider } from "./providers/theme";
 
 const title = "Ajay Singh";
 const description = "A Personal Portfolio for Ajay Singh.";
@@ -82,7 +83,9 @@ export default function RootLayout({
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
           }`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

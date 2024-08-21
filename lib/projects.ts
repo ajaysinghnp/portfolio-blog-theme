@@ -6,17 +6,19 @@ export const fetchProjects = async (): Promise<Project[]> => {
     const { data } = await axios.get(
       `https://api.github.com/users/${GIT_USERNAME}/repos`
     );
-    return data.map((repo: Repo) => ({
-      name: repo.name,
-      title: repo.name,
-      url: repo.html_url,
-      description: repo.description,
-      date: repo.created_at,
-      updated_at: repo.updated_at,
-      pushed_at: repo.pushed_at,
-      private: repo.private,
-      published: true,
-    }));
+    return data
+      .filter((repo: Repo) => repo.name !== "iptv-channels")
+      .map((repo: Repo) => ({
+        name: repo.name,
+        title: repo.name,
+        url: repo.html_url,
+        description: repo.description,
+        date: repo.created_at,
+        updated_at: repo.updated_at,
+        pushed_at: repo.pushed_at,
+        private: repo.private,
+        published: true,
+      }));
   } catch (error) {
     console.error("Error fetching projects:", error);
     return [];

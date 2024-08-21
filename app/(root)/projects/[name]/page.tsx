@@ -3,6 +3,7 @@ import { Project } from "@/types/github";
 import { fetchProjectReadme, fetchProjects } from "@/lib/projects";
 import ProjectPage from "./project";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { Suspense } from "react";
 
 type Props = {
   params: {
@@ -22,9 +23,14 @@ export default async function ProjectLoadingPage({ params }: Props) {
   return (
     <main className="space-y-2">
       <ProjectPage project_name={name} />
-      <article className="px-4 py-12 mx-auto text-white">
-        <MDXRemote source={readMe} />
-      </article>
+      <Suspense fallback={<>Loading ReadMe...</>}>
+        <article className="px-4 py-12 mx-auto text-white">
+          <MDXRemote
+            source={readMe}
+            options={{ mdxOptions: { format: "md" } }}
+          />
+        </article>
+      </Suspense>
     </main>
   );
 }

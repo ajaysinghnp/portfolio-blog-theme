@@ -5,7 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
-  }
+  },
+  transpilePackages: ["next-mdx-remote"],
 };
 
 export default nextConfig;

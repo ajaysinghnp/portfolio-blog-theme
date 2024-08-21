@@ -3,6 +3,9 @@
 import { Header } from "./header";
 import { fetchProject, fetchProjectReadme } from "@/lib/projects";
 import { Project } from "@/types/github";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from 'next-mdx-remote/serialize'
+import { useState } from "react";
 import useSWR from "swr";
 
 interface Props {
@@ -10,6 +13,7 @@ interface Props {
 }
 
 const ProjectPage = ({ project_name }: Props) => {
+  const [mdxSource, setMdxSource] = useState<MDXRemoteSerializeResult>();
   const {
     data: project,
     error: d_error,
@@ -19,7 +23,11 @@ const ProjectPage = ({ project_name }: Props) => {
     data: readMe,
     error: r_error,
     isLoading: r_isLoading,
-  } = useSWR<string | null>(project_name, fetchProjectReadme);
+  } = useSWR<string | null>(`${project_name}-readme`, fetchProjectReadme);
+
+  if (!r_isLoading && !r_error && readMe) {
+    serialize(readMe).then((source) => setMdxSource(source));
+  }
 
   if (d_error)
     return (
@@ -39,16 +47,12 @@ const ProjectPage = ({ project_name }: Props) => {
         Project not found...
       </div>
     );
-  console.log(readMe);
+
   return (
     <article>
       <Header project={project} views={5} />
       <article className="px-4 py-12 mx-auto text-white">
-        {/* {r_error && (
-          <div>Something happened while fetching project details...</div>
-        )}
-        {r_isLoading && <div>Loading...</div>}*/}
-        {readMe && <code>{readMe}</code>}
+        {readMe && mdxSource && <MDXRemote {...mdxSource} />}
       </article>
     </article>
   );

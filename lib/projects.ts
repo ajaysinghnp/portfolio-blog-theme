@@ -48,6 +48,7 @@ export const fetchProject = async (slug: string): Promise<Project | null> => {
 };
 
 export const fetchProjectReadme = async (project: string): Promise<string> => {
+  project = project.replace(/-readme/g, "");
   try {
     const { data } = await axios.get(
       `https://raw.githubusercontent.com/${GIT_USERNAME}/${project}/master/README.md`,

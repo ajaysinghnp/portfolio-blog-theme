@@ -63,7 +63,7 @@ export default function Home() {
 
       <Link
         href="/contacts"
-        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-5000 animate-fade-in hover:text-zinc-100"
+        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-500 animate-fade-in hover:text-zinc-100"
       >
         Let &rsquo; s Talk
       </Link>

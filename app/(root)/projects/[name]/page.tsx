@@ -24,7 +24,7 @@ export default async function ProjectLoadingPage({ params }: Props) {
     <main className="space-y-2">
       <ProjectPage project_name={name} />
       <Suspense fallback={<>Loading ReadMe...</>}>
-        <article className="px-4 py-12 mx-auto text-white">
+        <article className="px-4 py-12 mx-auto text-white prose prose-zinc prose-quoteless">
           <MDXRemote
             source={readMe}
             options={{ mdxOptions: { format: "md" } }}

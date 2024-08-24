@@ -1,5 +1,5 @@
 export const options = {
   mdxOptions: {
-    format: "mdx",
+    format: "md",
   },
 };

@@ -66,7 +66,7 @@ export default function ProjectsPage() {
 
       {projects && projects?.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+          <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
             <Card>
               <Link href={`/projects/${featured.name}`}>
                 <article className="relative w-full h-full p-4 md:p-8">
@@ -108,7 +108,7 @@ export default function ProjectsPage() {
               </Link>
             </Card>
 
-            <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+            <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
               {[top2, top3].map((project) => (
                 <Card key={project.name}>
                   <Article project={project} views={0} />

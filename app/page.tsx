@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { angelina } from "@/components/local-fonts";
-import Particles from "@/components/particles";
 import Social from "@/components/social";
 import { ModeToggle } from "@/components/theme-toggle";
 import { navigation } from "@/data/navigation";
@@ -56,12 +55,14 @@ export default function Home() {
 
       <Social />
 
-      <Link
-        href="/contact"
-        className="text-zinc-400  mt-12 border border-zinc-600 hover:border-zinc-200 py-2 px-8 rounded-lg duration-500 animate-fade-in hover:text-zinc-100"
-      >
-        Let &rsquo; s Talk
-      </Link>
+      <div className="animate-fade-in mt-12">
+        <Link
+          href="/contact"
+          className="text-zinc-400 duration-500 border border-zinc-600 hover:border-zinc-200 py-3 px-8 rounded-lg hover:text-zinc-100"
+        >
+          Let &rsquo; s Talk
+        </Link>
+      </div>
 
       <div className="absolute bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">
         <p className="text-center">

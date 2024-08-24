@@ -10,7 +10,7 @@ import Link from "next/link";
 const ResumePage = () => {
   return (
     <main className="flex flex-1 gap-4">
-      <div className="flex flex-col w-[35%] max-w-[24rem] items-center bg-zinc-900 rounded p-4 border border-zinc-600/60">
+      <div className="flex flex-col w-[35%] max-w-[24rem] items-center bg-zinc-900/60 rounded p-4 border border-zinc-600/60">
         <section className="text-center">
           <div className="mb-6">
             <Avatar className="h-48 w-48 border-white border-4 bg-[radial-gradient(white,transparent)]">
@@ -67,7 +67,7 @@ const ResumePage = () => {
         </section>
       </div>
       <div className="w-full flex flex-col gap-4">
-        <section className="flex flex-col gap-4 bg-zinc-900 rounded p-6 border border-zinc-600/60">
+        <section className="flex flex-col gap-4 bg-zinc-900/60 rounded p-6 border border-zinc-600/60">
           <div className="section-header flex gap-4 items-center text-2xl">
             <BriefcaseBusiness className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase">Work Experience</h2>
@@ -88,7 +88,7 @@ const ResumePage = () => {
             })}
           </ul>
         </section>
-        <section className="flex flex-col gap-4 bg-zinc-900 rounded p-6 border border-zinc-600/60">
+        <section className="flex flex-col gap-4 bg-zinc-900/60 rounded p-6 border border-zinc-600/60">
           <div className="section-header flex gap-4 items-center text-2xl">
             <GraduationCap className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase">Education/Qualifications</h2>
@@ -109,7 +109,7 @@ const ResumePage = () => {
             })}
           </ul>
         </section>
-        <section className="flex flex-col gap-4 bg-zinc-900 rounded p-6 border border-zinc-600/60">
+        <section className="flex flex-col gap-4 bg-zinc-900/60 rounded p-6 border border-zinc-600/60">
           <div className="section-header flex gap-4 items-center text-2xl">
             <PocketKnife className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase text-purple-600">Skills</h2>

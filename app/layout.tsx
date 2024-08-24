@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import { calSans } from "@/components/local-fonts";
 import { ThemeProvider } from "../providers/theme";
+import Particles from "@/components/particles";
 
 const title = "Ajay Singh";
 const description = "A Personal Portfolio for Ajay Singh.";
@@ -80,11 +81,17 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
-        className={`bg-black ${
-          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-        } text-white`}
+        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+          } text-white`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+
+          <Particles
+            className="absolute inset-0 -z-10 animate-fade-in"
+            quantity={200}
+          />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

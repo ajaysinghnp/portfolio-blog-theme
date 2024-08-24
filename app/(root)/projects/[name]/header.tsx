@@ -1,30 +1,35 @@
 "use client";
+
+import { fetchProject } from "@/lib/projects";
+import { Project } from "@/types/github";
 import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useSWR from "swr";
 
-type Props = {
-  project: {
-    url?: string;
-    title: string;
-    description: string;
-    repository?: string;
-  };
+interface Props {
+  project_name: string;
+}
 
-  views: number;
-};
-export const Header: React.FC<Props> = ({ project, views }) => {
+const ProjectHeader = ({ project_name }: Props) => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
-
   const links: { label: string; href: string }[] = [];
-  if (project.repository) {
+  const views = 10;
+
+  const {
+    data: project,
+    error,
+    isLoading,
+  } = useSWR<Project | null>(project_name, fetchProject);
+
+  if (project?.repository) {
     links.push({
       label: "GitHub",
       href: `https://github.com/${project.repository}`,
     });
   }
-  if (project.url) {
+  if (project?.url) {
     links.push({
       label: "Website",
       href: project.url,
@@ -39,6 +44,25 @@ export const Header: React.FC<Props> = ({ project, views }) => {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  if (error)
+    return (
+      <div className="relative h-dvh flex justify-center items-center">
+        Something happened while fetching project details...
+      </div>
+    );
+  if (isLoading)
+    return (
+      <div className="relative h-dvh flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  if (!project)
+    return (
+      <div className="relative h-dvh flex justify-center items-center">
+        Project not found...
+      </div>
+    );
 
   return (
     <header
@@ -94,18 +118,18 @@ export const Header: React.FC<Props> = ({ project, views }) => {
           </Link>
         </div>
       </div>
-      <div className="container mx-auto relative isolate overflow-hidden  py-24 sm:py-32">
+      <div className="container mx-auto relative isolate overflow-hidden  py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+          <div className="mx-auto lg:mx-0">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
               {project.title.toLocaleUpperCase()}
             </h1>
-            <p className="mt-6 text-lg text-white sm:text-xl font-semibold leading-8">
+            <p className="mt-6 text-lg text-muted-foreground sm:text-xl font-semibold leading-8">
               {project.description}
             </p>
           </div>
 
-          <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+          <div className="mx-auto mt-4 max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
               {links.map((link) => (
                 <Link target="_blank" key={link.label} href={link.href}>
@@ -119,3 +143,5 @@ export const Header: React.FC<Props> = ({ project, views }) => {
     </header>
   );
 };
+
+export default ProjectHeader;

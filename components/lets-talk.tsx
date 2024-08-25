@@ -6,9 +6,9 @@ const LetsTalk = () => {
   return (
     <div className="px-6 py-6 sm:py-12 lg:px-8 border border-zinc-300/60 rounded">
       <div className="mx-auto flex flex-col items-center justify-center text-center">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-300">Let's Talk</h1>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-300">Let&apos;s Talk</h1>
         <p className="mt-3 text-lg text-zinc-400">
-          Feature request? Suggestion? or maybe you'd like to be our critic! Here's a form just for that.
+          Feature request? Suggestion? or maybe you&apos;d like to be our critic! Here&apos;s a form just for that.
         </p>
       </div>
       <form className="mx-auto mt-8 max-w-xl sm:mt-20">

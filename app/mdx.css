@@ -1,0 +1,26 @@
+[data-rehype-pretty-code-figure]>pre>code {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure]>pre>code>[data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+[data-rehype-pretty-code-figure]>pre>code[data-line-numbers-max-digits="2"]>[data-line]::before {
+  width: 2rem;
+}
+
+[data-rehype-pretty-code-figure]>pre>code[data-line-numbers-max-digits="3"]>[data-line]::before {
+  width: 3rem;
+}
+
+/* Inline Code */
+span[data-rehype-pretty-code-figure]>code {
+  @apply px-2 rounded;
+}

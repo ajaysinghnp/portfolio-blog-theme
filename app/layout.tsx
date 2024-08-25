@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "@/app/globals.css";
+import "@/app/mdx.css"
 import { calSans } from "@/components/local-fonts";
 import { ThemeProvider } from "../providers/theme";
 import Particles from "@/components/particles";

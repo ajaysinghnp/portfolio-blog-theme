@@ -1,8 +1,11 @@
+import LetsTalk from '@/components/lets-talk'
 import React from 'react'
 
 const ContactPage = () => {
   return (
-    <div className='text-white'>ContactPage</div>
+    <main className='flex flex-1 gap-4 justify-center items-center text-white'>
+      <LetsTalk />
+    </main>
   )
 }
 

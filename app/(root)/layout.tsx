@@ -10,7 +10,7 @@ export default function ProjectsLayout({
     <div className="relative">
       <div className="relative my-6 ">
         <Navigation gitTheme />
-        <div className="container pt-8 mx-auto lg:pt-16 px-2">{children}</div>
+        <div className="container pt-8 mx-auto lg:pt-16 px-2 mb-12">{children}</div>
         <div className="fixed bottom-0 left-0 p-4 text-sm text-zinc-500 animate-fade-in">
           <p className="text-center">
             Made with ❤️ in <span className="text-2xl">🇳🇵</span> and hosted by{" "}

@@ -29,4 +29,9 @@ export const components = {
       {props.children}
     </a>
   ),
+  strong: (props: any) => (
+    <strong {...props} className="font-bold text-zinc-400">
+      {props.children}
+    </strong>
+  ),
 }

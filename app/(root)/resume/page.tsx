@@ -66,7 +66,7 @@ const ResumePage = () => {
           </ul>
         </section>
       </div>
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-1 flex-col gap-4">
         <section className="flex flex-col gap-4 bg-zinc-900/60 rounded p-6 border border-zinc-600/60">
           <div className="section-header flex gap-4 items-center text-2xl">
             <BriefcaseBusiness className="h-8 w-8 text-purple-600" />

@@ -2,7 +2,10 @@ import React from 'react'
 
 const BlogPage = () => {
   return (
-    <div className='text-white'>BlogPage</div>
+    <main
+      className="flex flex-1 flex-col gap-4 p-4">
+      Main Content
+    </main>
   )
 }
 

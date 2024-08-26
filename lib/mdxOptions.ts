@@ -2,7 +2,6 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { transformerCopyButton } from "@rehype-pretty/transformers";
 
 export const options = {
   mdxOptions: {

@@ -1,21 +1,12 @@
 export type Tag = string;
 
-export const tags: Tag[] = [
-  "All",
-  "IT",
-  "IOT",
-  "Networking",
-  "Software Development",
-  "Finance",
-  "Others",
-];
-
 export type Post = {
   title: string;
   excerpt?: string;
   content: string;
   author: string;
   tags: Tag[];
+  slug: string;
   created_at: string;
   updated_at: string;
 };
@@ -30,6 +21,7 @@ export const posts: Post[] = [
     tags: ["Software Development", "JavaScript"],
     created_at: "2023-01-01T10:00:00Z",
     updated_at: "2023-01-02T12:00:00Z",
+    slug: "understanding-javascript-closures",
   },
   {
     title: "Introduction to IoT",
@@ -40,6 +32,7 @@ export const posts: Post[] = [
     tags: ["IOT", "Networking"],
     created_at: "2023-01-03T11:00:00Z",
     updated_at: "2023-01-04T13:00:00Z",
+    slug: "introduction-to-iot",
   },
   {
     title: "Networking Basics",
@@ -50,6 +43,7 @@ export const posts: Post[] = [
     tags: ["Networking", "IT"],
     created_at: "2023-01-05T12:00:00Z",
     updated_at: "2023-01-06T14:00:00Z",
+    slug: "networking-basics",
   },
   {
     title: "Advanced TypeScript Tips",
@@ -60,6 +54,7 @@ export const posts: Post[] = [
     tags: ["Software Development", "TypeScript"],
     created_at: "2023-01-07T10:00:00Z",
     updated_at: "2023-01-08T12:00:00Z",
+    slug: "advanced-typescript-tips",
   },
   {
     title: "Financial Planning for IT Professionals",
@@ -70,6 +65,7 @@ export const posts: Post[] = [
     tags: ["Finance", "IT"],
     created_at: "2023-01-09T11:00:00Z",
     updated_at: "2023-01-10T13:00:00Z",
+    slug: "financial-planning-for-it-professionals",
   },
   {
     title: "Building a REST API with Node.js",
@@ -80,6 +76,7 @@ export const posts: Post[] = [
     tags: ["Software Development", "Node.js"],
     created_at: "2023-01-11T12:00:00Z",
     updated_at: "2023-01-12T14:00:00Z",
+    slug: "building-a-rest-api-with-node.js",
   },
   {
     title: "Exploring Machine Learning",
@@ -90,6 +87,7 @@ export const posts: Post[] = [
     tags: ["IT", "Machine Learning"],
     created_at: "2023-01-13T10:00:00Z",
     updated_at: "2023-01-14T12:00:00Z",
+    slug: "exploring-machine-learning",
   },
   {
     title: "Cybersecurity Best Practices",
@@ -100,6 +98,7 @@ export const posts: Post[] = [
     tags: ["IT", "Cybersecurity"],
     created_at: "2023-01-15T11:00:00Z",
     updated_at: "2023-01-16T13:00:00Z",
+    slug: "cybersecurity-best-practices",
   },
   {
     title: "Introduction to Cloud Computing",
@@ -110,6 +109,7 @@ export const posts: Post[] = [
     tags: ["IT", "Cloud Computing"],
     created_at: "2023-01-17T12:00:00Z",
     updated_at: "2023-01-18T14:00:00Z",
+    slug: "introduction-to-cloud-computing",
   },
   {
     title: "Getting Started with React",
@@ -120,6 +120,7 @@ export const posts: Post[] = [
     tags: ["Software Development", "React"],
     created_at: "2023-01-19T10:00:00Z",
     updated_at: "2023-01-20T12:00:00Z",
+    slug: "getting-started-with-react",
   },
   {
     title: "Understanding Blockchain Technology",
@@ -130,6 +131,7 @@ export const posts: Post[] = [
     tags: ["IT", "Blockchain"],
     created_at: "2023-01-21T11:00:00Z",
     updated_at: "2023-01-22T13:00:00Z",
+    slug: "understanding-blockchain-technology",
   },
   {
     title: "Data Science for Beginners",
@@ -140,6 +142,7 @@ export const posts: Post[] = [
     tags: ["IT", "Data Science"],
     created_at: "2023-01-23T12:00:00Z",
     updated_at: "2023-01-24T14:00:00Z",
+    slug: "data-science-for-beginners",
   },
   {
     title: "Building Mobile Apps with Flutter",
@@ -150,6 +153,7 @@ export const posts: Post[] = [
     tags: ["Software Development", "Flutter"],
     created_at: "2023-01-25T10:00:00Z",
     updated_at: "2023-01-26T12:00:00Z",
+    slug: "building-mobile-apps-with-flutter",
   },
   {
     title: "Introduction to DevOps",
@@ -160,5 +164,6 @@ export const posts: Post[] = [
     tags: ["IT", "DevOps"],
     created_at: "2023-01-27T11:00:00Z",
     updated_at: "2023-01-26T12:00:00Z",
+    slug: "introduction-to-devops",
   },
 ];

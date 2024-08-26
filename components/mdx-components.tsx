@@ -1,3 +1,6 @@
+import { cn } from "@/lib/utils"
+import { CopyButton } from "./copy-btn"
+
 export const components = {
   h1: (props: any) => (
     <h1 {...props} className="text-lg text-white">
@@ -34,4 +37,10 @@ export const components = {
       {props.children}
     </strong>
   ),
+  pre: (props: any) => {
+    return <pre {...props} className={cn('relative', props.className)}>
+      {props.children}
+      <CopyButton text={props.raw} />
+    </pre>
+  },
 }

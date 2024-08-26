@@ -29,14 +29,6 @@ export const options = {
         {
           theme: "github-dark",
           defaultLang: "plaintext",
-          transformers: [
-            transformerCopyButton({
-              visibility: "always",
-              feedbackDuration: 3_000,
-              // copyIcon: "📋",
-              // successIcon: "🎉",
-            }),
-          ],
           onVisitLine(node: any) {
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }];

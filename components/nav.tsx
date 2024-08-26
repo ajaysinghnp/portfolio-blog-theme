@@ -32,12 +32,14 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
   }, []);
 
   return (
-    <header ref={ref}>
+    <header ref={ref} className="mb-[calc(2rem_+_0.55rem)] lg:mb-[calc(3rem_+_0.55rem)]">
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${isIntersecting
-          ? "bg-zinc-900/0 border-transparent"
-          : "bg-zinc-900/500  border-zinc-800 "
-          }`}
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b",
+          isIntersecting ?
+            "bg-zinc-900/0 border-transparent" :
+            "bg-zinc-900/500  border-zinc-800"
+        )}
       >
         <div className="container flex flex-row items-center justify-between p-2 mx-auto">
           <Link

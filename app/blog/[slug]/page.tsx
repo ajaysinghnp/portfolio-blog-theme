@@ -1,95 +1,25 @@
-import React from 'react'
+import { posts, type Post } from "@/data/blog";
 
-const BlogPage = () => {
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateStaticParams(): Promise<Props["params"][]> {
+  return posts.map((post: Post) => ({ slug: post.slug }));
+}
+
+const BlogPage = ({ params }: Props) => {
+  const slug = params?.slug;
+  const post = posts.find((post: Post) => post.slug === slug);
   return (
     <main
       className="flex flex-1 flex-col gap-4 p-4">
-      <h1>Blog Page</h1>
+      <h1>{post?.title}</h1>
       <p>
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
-        This is a blog page. It is a simple page with a heading and a paragraph.
+        {post?.content}
       </p>
     </main>
   )

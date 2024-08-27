@@ -1,11 +1,34 @@
-export type Tag = string;
+import { slugify } from "@/lib/strings";
+
+export type Tag = {
+  label: string;
+  slug: string;
+  count: number;
+};
+
+export const getTags = (): Tag[] => {
+  const tagMap: { [key: string]: number } = {};
+
+  posts
+    .map((post) => post.tags)
+    .flat()
+    .forEach((tag) => {
+      tagMap[tag] = (tagMap[tag] || 0) + 1;
+    });
+
+  return Object.keys(tagMap).map((tag) => ({
+    label: tag,
+    slug: slugify(tag),
+    count: tagMap[tag],
+  }));
+};
 
 export type Post = {
   title: string;
   excerpt?: string;
   content: string;
   author: string;
-  tags: Tag[];
+  tags: string[];
   slug: string;
   created_at: string;
   updated_at: string;

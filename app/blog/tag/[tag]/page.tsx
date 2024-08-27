@@ -1,6 +1,18 @@
-import { posts } from "@/data/blog"
+import { getTags, posts, type Tag } from "@/data/blog"
 import TagsSection from "@/components/blog/tags"
 import PostsSection from "@/components/blog/posts"
+
+
+type Props = {
+  params: {
+    tag: string;
+  };
+};
+
+export async function generateStaticParams(): Promise<Props["params"][]> {
+  const tags = getTags()
+  return tags.map(tag => ({ tag: tag.slug }));
+}
 
 const Circle = () => {
   return (
@@ -8,7 +20,10 @@ const Circle = () => {
   )
 }
 
-const BlogPage = () => {
+const TagsPage = ({ params }: Props) => {
+  const tags = getTags();
+  const tag = tags.find(tag => tag.slug === params.tag);
+  const filteredPosts = tag ? posts.filter(post => post.tags.includes(tag.label)) : posts;
   return (
     <main className="mt-24 flex flex-1 flex-col gap-8 justify-center items-center">
       {/* heading */}
@@ -17,7 +32,7 @@ const BlogPage = () => {
         <h1 className="text-5xl">
           Find my
           <span className="text-purple-500 px-2">
-            Blogs
+            {tag?.label} {" "} Blogs
           </span>
           here
         </h1>
@@ -26,9 +41,9 @@ const BlogPage = () => {
       {/* Tags */}
       <TagsSection />
       {/* Posts */}
-      <PostsSection posts={posts} />
+      <PostsSection posts={filteredPosts} />
     </main>
   )
 }
 
-export default BlogPage
+export default TagsPage

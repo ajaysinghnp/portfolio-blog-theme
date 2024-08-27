@@ -8,11 +8,11 @@ export default function ProjectsLayout({
 }) {
   return (
     <>
-      <div className="h-[calc(100dvh-6.55rem)] sticky top-12 w-[30%] max-w-[24rem] items-center pt-4">
+      <div className="h-[calc(100dvh-6.55rem)] sticky top-12 w-[25%] max-w-[24rem] items-center pt-4">
         <LeftSideBar />
       </div>
       {children}
-      <div className="h-[calc(100dvh-6.55rem)] sticky top-12 w-[30%] max-w-[24rem] items-center pt-4">
+      <div className="h-[calc(100dvh-6.55rem)] sticky top-12 w-[25%] max-w-[24rem] items-center pt-4">
         <RightSideBar />
       </div>
     </>

@@ -8,7 +8,7 @@ const Circle = () => {
   )
 }
 
-const BlogPage = () => {
+const TagsPage = () => {
   return (
     <main className="mt-24 flex flex-1 flex-col gap-8 justify-center items-center">
       {/* heading */}
@@ -31,4 +31,4 @@ const BlogPage = () => {
   )
 }
 
-export default BlogPage
+export default TagsPage

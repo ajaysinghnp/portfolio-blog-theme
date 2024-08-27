@@ -41,7 +41,7 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
             "bg-zinc-900/500  border-zinc-800"
         )}
       >
-        <div className="container flex flex-row items-center justify-between p-2 mx-auto">
+        <div className="container max-w-[90%] flex flex-row items-center justify-between p-2 mx-auto">
           <Link
             href="/"
             className="flex gap-2 duration-200 text-zinc-300 hover:text-zinc-100"

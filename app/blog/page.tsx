@@ -46,7 +46,7 @@ const BlogPage = () => {
         ))}
       </div>
       {/* Posts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full justify-center items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 w-full justify-center items-center">
         {posts.map(post => (
           <article className="flex flex-col gap-4 border border-zinc-600/60 rounded p-4" key={post.slug}>
             <div className="flex justify-between text-sm">

@@ -25,10 +25,9 @@ const TagsPage = ({ params }: Props) => {
   const tag = tags.find(tag => tag.slug === params.tag);
   const filteredPosts = tag ? posts.filter(post => post.tags.includes(tag.label)) : posts;
   return (
-    <main className="mt-24 flex flex-1 flex-col gap-8 justify-center items-center">
+    <main className="mt-20 flex flex-1 flex-col gap-12 justify-center items-center">
       {/* heading */}
-      <div className="flex gap-12 justify-center items-center">
-        <Circle />
+      <div className="flex justify-center items-center">
         <h1 className="text-5xl">
           Find my
           <span className="text-purple-500 px-2">
@@ -36,7 +35,6 @@ const TagsPage = ({ params }: Props) => {
           </span>
           here
         </h1>
-        <Circle />
       </div>
       {/* Tags */}
       <TagsSection />

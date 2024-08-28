@@ -2,11 +2,12 @@ import { getTags } from '@/data/blog';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
+import { sortSlugAlpha, sortSlugCount } from '@/lib/strings';
 
 const TagsSection = () => {
-  const tags = getTags();
+  const tags = getTags().sort(sortSlugAlpha);
   return (
-    <div className="flex flex-wrap max-w-full gap-4 justify-center items-center">
+    <div className="flex flex-wrap max-w-full gap-2 justify-center items-center">
       {tags.map(tag => (
         <Link
           className={cn(

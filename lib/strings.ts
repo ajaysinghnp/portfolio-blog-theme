@@ -14,3 +14,11 @@ export const calculateReadingTime = (content: string): string => {
   const minutes = Math.ceil(words / wordsPerMinute); // Calculate total minutes (rounded up)
   return `${minutes} ${minutes > 1 ? " mins " : " min "} read`;
 };
+
+export const sortAlpha = (a: string, b: string) => a.localeCompare(b);
+
+export const sortSlugAlpha = (a: { slug: string }, b: { slug: string }) =>
+  a.slug.localeCompare(b.slug);
+
+export const sortSlugCount = (a: { count: number }, b: { count: number }) =>
+  b.count - a.count;

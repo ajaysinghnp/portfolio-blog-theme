@@ -1,7 +1,6 @@
 import { posts } from "@/data/blog"
 import TagsSection from "@/components/blog/tags"
 import PostsSection from "@/components/blog/posts"
-import { Circle } from "@/components/circle"
 
 const BlogPage = () => {
   return (

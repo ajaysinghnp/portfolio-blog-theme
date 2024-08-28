@@ -1,18 +1,13 @@
 import { posts, type Post } from "@/data/blog";
 
-
-type Props = {
+interface Props {
   params: {
     slug: string;
-  };
-};
-
-export async function generateStaticParams(): Promise<Props["params"][]> {
-  return posts.map((post: Post) => ({ slug: post.slug }));
+  }
 }
 
 const BlogPage = ({ params }: Props) => {
-  const slug = params?.slug;
+  const { slug } = params;
   const post = posts.find((post: Post) => post.slug === slug);
   return (
     <main

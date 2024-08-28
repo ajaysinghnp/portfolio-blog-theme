@@ -5,10 +5,19 @@ export const resume = {
   position: "IT Assistant @NRB",
   profile:
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil corporis recusandae doloribus fugit nemo. Pariatur quis reiciendis ad reprehenderit cupiditate aperiam dicta magnam necessitatibus accusantium!",
-  contact: [
-    "+977 9846449912",
-    "admin@ajaysingh.com.np",
-    "Nepal Rastra Bank, Baluwatar KTM",
+  contacts: [
+    {
+      label: "Personal",
+      phone: "+977 9846449912",
+      email: "admin@ajaysingh.com.np",
+      address: "Chabahil, Kathmandu, Nepal",
+    },
+    {
+      label: "Office",
+      phone: "+977 9846449912",
+      email: "ajay@nrb.org.np",
+      address: "Nepal Rastra Bank, Baluwatar KTM",
+    },
   ],
   workExperiences: [
     {

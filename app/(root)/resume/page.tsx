@@ -1,11 +1,13 @@
+import Link from "next/link";
+import { BriefcaseBusiness, CircleUserRound, ContactRound, GraduationCap, Handshake, Home, Mail, MapPinHouse, MessageCircle, PhoneCall, PocketKnife } from "lucide-react";
+
+import Icon from "@/components/icons";
 import PingingDot from "@/components/pinging-dot";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { resume } from "@/data/resume";
 import { socialMedia } from "@/data/social";
 import authorImage from "@/public/images/author.png";
-import { BriefcaseBusiness, CircleUserRound, GraduationCap, PhoneCall, PocketKnife } from "lucide-react";
-import Link from "next/link";
 
 const ResumePage = () => {
   return (
@@ -36,15 +38,34 @@ const ResumePage = () => {
         <Separator className="my-4 bg-zinc-600/60" />
         <section className="p-2 flex flex-col gap-4 w-full">
           <div className="section-header flex gap-4 items-center text-2xl">
-            <PhoneCall className="h-8 w-8 text-purple-600" />
+            <ContactRound className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase text-purple-600">Contact</h2>
           </div>
-          <ul>
-            {resume.contact.map((contact, index) => {
+          <ul className="flex flex-col gap-4">
+            {resume.contacts.map((contact, index) => {
               return (
-                <li className="flex gap-4 items-center" key={index}>
-                  <PingingDot />
-                  {contact}
+                <li className="flex flex-col gap-4 justify-center pl-4" key={index}>
+                  <div className="flex gap-4 items-center border-b border-zinc-600/60">
+                    {contact.label.toLocaleLowerCase() === "personal" && (
+                      <Home className="h-4 w-4" />
+                    )}
+                    {contact.label.toLocaleLowerCase() === "office" && (
+                      <BriefcaseBusiness className="h-4 w-4" />
+                    )}
+                    {contact.label}
+                  </div>
+                  <span className="flex gap-4 text-sm">
+                    <PhoneCall className="h-4 w-4" />
+                    {contact.phone}
+                  </span>
+                  <span className="flex gap-4 text-sm">
+                    <Mail className="h-4 w-4" />
+                    {contact.email}
+                  </span>
+                  <span className="flex gap-4 text-sm">
+                    <MapPinHouse className="h-4 w-4" />
+                    {contact.address}
+                  </span>
                 </li>
               );
             })}
@@ -53,14 +74,14 @@ const ResumePage = () => {
         <Separator className="my-4 bg-zinc-600/60" />
         <section className="p-2 flex flex-col gap-4 w-full">
           <div className="section-header flex gap-4 items-center text-2xl">
-            <PhoneCall className="h-8 w-8 text-purple-600" />
+            <Handshake className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase text-purple-600">Social Links</h2>
           </div>
           <ul>
             {Object.entries(socialMedia).map(([key, value]) => (
-              <li key={key} className="flex gap-4 items-center">
-                <PingingDot />
-                <Link href={value.href} target="_blank" rel="noopener">{value.label}</Link>
+              <li key={key} className="flex gap-4 pl-4 items-center">
+                <Icon name={key} />
+                <Link href={value.href} target="_blank" rel="noopener" className="hover:text-purple-500 duration-1000">{value.label}</Link>
               </li>
             ))}
           </ul>

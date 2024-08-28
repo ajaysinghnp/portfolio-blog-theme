@@ -14,6 +14,11 @@ export const socialMedia = {
     label: "Twitter",
     handle: "@singh_ajaykumar",
   },
+  linkedin: {
+    href: "https://linkedin.com/in/ajaysingh.com.np",
+    label: "LinkedIn",
+    handle: "@singh_ajaykumar",
+  },
   email: {
     href: "mailto:admin@ajaysingh.com.np",
     label: "Email",

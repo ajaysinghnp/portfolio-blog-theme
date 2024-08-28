@@ -4,8 +4,8 @@ import "@/app/globals.css";
 import "@/app/mdx.css"
 import { calSans } from "@/components/local-fonts";
 import { ThemeProvider } from "../providers/theme";
-import Particles from "@/components/particles";
 import { cn } from "@/lib/utils";
+import Particles from "@/components/particles";
 
 const title = "Ajay Singh";
 const description = "A Personal Portfolio for Ajay Singh.";
@@ -89,10 +89,9 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider>
-
           <Particles
             className="animate-fade-in"
-            quantity={100}
+            quantity={150}
           />
           {children}
         </ThemeProvider>

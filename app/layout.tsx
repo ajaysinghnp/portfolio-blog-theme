@@ -5,6 +5,7 @@ import "@/app/mdx.css"
 import { calSans } from "@/components/local-fonts";
 import { ThemeProvider } from "../providers/theme";
 import Particles from "@/components/particles";
+import { cn } from "@/lib/utils";
 
 const title = "Ajay Singh";
 const description = "A Personal Portfolio for Ajay Singh.";
@@ -82,13 +83,15 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          } text-white`}
+        className={cn(
+          "bg-black text-white",
+          process.env.NODE_ENV === "development" ?? "debug-screens",
+        )}
       >
         <ThemeProvider>
 
           <Particles
-            className="absolute inset-0 -z-10 animate-fade-in"
+            className="animate-fade-in"
             quantity={200}
           />
           {children}

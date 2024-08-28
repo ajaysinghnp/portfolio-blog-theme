@@ -1,8 +1,8 @@
 import Link from "next/link"
+import { Contact, NotebookPen, NotepadText, Tag } from "lucide-react"
 
-import { calculateReadingTime, formatDate } from "@/lib/strings"
+import { calculateReadingTime, formatDate, slugify } from "@/lib/strings"
 import { cn } from "@/lib/utils"
-import { Contact, NotebookPen, NotepadText } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { Post } from "@/data/blog"
 
@@ -18,9 +18,12 @@ const PostsSection = ({ posts }: Props) => {
           <div className="flex justify-between text-sm">
             <div className="flex gap-1">
               {post.tags.map(tag => (
-                <span className="bg-purple-500/60 px-2 py-1 rounded text-white" key={tag}>
-                  {tag}
-                </span>
+                <Link href={`/blog/tag/${slugify(tag)}`} key={tag}>
+                  <div className="flex gap-1 justify-between pt-1 bg-zinc-600/60 border border-slate-600/60 hover:bg-purple-500/60 px-2 rounded text-white transition duration-1000" key={tag}>
+                    <Tag className="h-3 w-3" />
+                    <span className="leading-4">{tag}</span>
+                  </div>
+                </Link>
               ))}
             </div>
             <p className="text-muted-foreground">{calculateReadingTime(post.content)}</p>
@@ -28,9 +31,10 @@ const PostsSection = ({ posts }: Props) => {
           <Link href={`/blog/post/${post.slug}`}>
             <h2 className="text-2xl hover:text-purple-500 transition duration-1000">
               {post.title}
+              <span className="block text-sm text-muted-foreground">{post.excerpt}</span>
             </h2>
           </Link>
-          <p className="text-muted-foreground">{post.excerpt}</p>
+          <p className="text-slate-300 line-clamp-3">{post.content}</p>
           <div className="flex justify-between items-center">
             <div className="flex gap-4 text-sm">
               <p className="flex gap-1">

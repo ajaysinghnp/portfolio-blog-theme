@@ -2,7 +2,6 @@ import { getTags } from '@/data/blog';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 const TagsSection = () => {
   const tags = getTags();
@@ -17,8 +16,7 @@ const TagsSection = () => {
           href={`/blog/tag/${tag.slug.toLocaleLowerCase() === "all" ? "" : tag.slug.toLocaleLowerCase()}`}
           key={tag.slug}
         >
-          <Badge variant="secondary" className="text-white absolute top-[-0.5rem] right-[-0.5rem] bg-purple-500 hover:bg-purple-600">{tag.count}</Badge>
-          {tag.label}
+          {tag.label}{" ("}{tag.count}{")"}
         </Link>
       ))}
     </div>

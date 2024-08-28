@@ -1,12 +1,7 @@
 import { posts } from "@/data/blog"
 import TagsSection from "@/components/blog/tags"
 import PostsSection from "@/components/blog/posts"
-
-const Circle = () => {
-  return (
-    <div className="h-12 w-12 bg-green-500/60 rounded-full" />
-  )
-}
+import { Circle } from "@/components/circle"
 
 const BlogPage = () => {
   return (

@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { useMousePosition } from "@/lib/mouse";
+import { cn } from "@/lib/utils";
 
 interface ParticlesProps {
   className?: string;
@@ -229,7 +230,7 @@ export default function Particles({
   };
 
   return (
-    <div className={className} ref={canvasContainerRef} aria-hidden="true">
+    <div className={cn("fixed inset-0 -z-10", className)} ref={canvasContainerRef} aria-hidden="true">
       <canvas ref={canvasRef} />
     </div>
   );

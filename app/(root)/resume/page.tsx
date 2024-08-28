@@ -44,7 +44,7 @@ const ResumePage = () => {
           <ul className="flex flex-col gap-4">
             {resume.contacts.map((contact, index) => {
               return (
-                <li className="flex flex-col gap-4 justify-center pl-4" key={index}>
+                <li className="flex flex-col gap-2 justify-center pl-4" key={index}>
                   <div className="flex gap-4 items-center border-b border-zinc-600/60">
                     {contact.label.toLocaleLowerCase() === "personal" && (
                       <Home className="h-4 w-4" />
@@ -77,7 +77,7 @@ const ResumePage = () => {
             <Handshake className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase text-purple-600">Social Links</h2>
           </div>
-          <ul>
+          <ul className="flex flex-col gap-2">
             {Object.entries(socialMedia).map(([key, value]) => (
               <li key={key} className="flex gap-4 pl-4 items-center">
                 <Icon name={key} />

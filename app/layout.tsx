@@ -90,10 +90,10 @@ export default function RootLayout({
       >
         <ThemeProvider>
 
-          <Particles
+          {/* <Particles
             className="animate-fade-in"
             quantity={200}
-          />
+          /> */}
           {children}
         </ThemeProvider>
       </body>

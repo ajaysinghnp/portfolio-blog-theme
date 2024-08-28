@@ -58,7 +58,7 @@ export const Navigation: React.FC<Props> = ({ gitTheme = false }: Props) => {
                       href={item.href}
                       className={cn(
                         "duration-500 text-zinc-500 hover:text-zinc-300",
-                        pathname === item.href ? "text-purple-600/80 hover:text-purple-600" : ""
+                        pathname.includes(item.href) ? "text-purple-600/80 hover:text-purple-600" : ""
                       )}
                     >
                       {item.name}

@@ -2,6 +2,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkToc from "remark-toc";
 
 export const options = {
   mdxOptions: {
@@ -19,7 +20,7 @@ export const options = {
             type: "element",
             tagName: "span",
             properties: { className: ["icon", "icon--link"] },
-            children: [{ type: "text", value: "🔗" }],
+            children: [{ type: "text", value: " 🔗" }],
           },
         },
       ],
@@ -42,6 +43,18 @@ export const options = {
         },
       ],
     ],
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [
+      remarkGfm,
+      [
+        remarkToc,
+        {
+          ordered: true,
+          tight: false,
+          maxDepth: 3,
+          parents: ["listItem", "root"],
+          skip: "delta",
+        },
+      ],
+    ],
   },
 };

@@ -10,9 +10,7 @@ export default function ProjectsLayout({
     <div className="relative">
       <div className="relative my-6 max-w-[90%] mx-auto">
         <Navigation gitTheme />
-        <div className="mx-auto px-2 flex flex-1 mb-12">
-          {children}
-        </div>
+        <div className="mx-auto flex flex-1 mb-12">{children}</div>
         <Footer />
       </div>
     </div>

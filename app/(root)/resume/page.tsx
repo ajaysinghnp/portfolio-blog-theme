@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { BriefcaseBusiness, CircleUserRound, ContactRound, GraduationCap, Handshake, Home, Mail, MapPinHouse, MessageCircle, PhoneCall, PocketKnife } from "lucide-react";
+import { BriefcaseBusiness, CircleUserRound, ContactRound, Handshake, Home, Mail, MapPinHouse, PhoneCall } from "lucide-react";
 
 import Icon from "@/components/icons";
-import PingingDot from "@/components/pinging-dot";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { resume } from "@/data/resume";
@@ -26,7 +25,7 @@ const ResumePage = () => {
           <h1 className="text-2xl w-full text-center">
             {resume.fname} <span className="text-white">{resume.lname}</span>
           </h1>
-          <p className="mt-2">{resume.position}</p>
+          <p className="mt-2 text-muted-foreground">{resume.position}</p>
         </section>
         <Separator className="my-4 bg-zinc-600/60" />
         <section className="p-2 flex flex-col gap-4 w-full">
@@ -34,7 +33,7 @@ const ResumePage = () => {
             <CircleUserRound className="h-8 w-8 text-purple-600" />
             <h2 className="uppercase text-purple-600">Profile</h2>
           </div>
-          <p className="text-justify text-muted">
+          <p className="text-justify text-muted-foreground">
             {resume.profile}
           </p>
         </section>
@@ -57,15 +56,15 @@ const ResumePage = () => {
                     )}
                     {contact.label}
                   </div>
-                  <span className="flex gap-4 text-sm">
+                  <span className="flex gap-4 text-sm text-muted-foreground">
                     <PhoneCall className="h-4 w-4" />
                     {contact.phone}
                   </span>
-                  <span className="flex gap-4 text-sm">
+                  <span className="flex gap-4 text-sm text-muted-foreground">
                     <Mail className="h-4 w-4" />
                     {contact.email}
                   </span>
-                  <span className="flex gap-4 text-sm">
+                  <span className="flex gap-4 text-sm text-muted-foreground">
                     <MapPinHouse className="h-4 w-4" />
                     {contact.address}
                   </span>
@@ -82,7 +81,7 @@ const ResumePage = () => {
           </div>
           <ul className="flex flex-col gap-2">
             {Object.entries(socialMedia).map(([key, value]) => (
-              <li key={key} className="flex gap-4 pl-4 items-center">
+              <li key={key} className="flex gap-4 pl-4 items-center text-muted-foreground">
                 <Icon name={key} />
                 <Link href={value.href} target="_blank" rel="noopener" className="hover:text-purple-500 duration-1000">{value.label}</Link>
               </li>

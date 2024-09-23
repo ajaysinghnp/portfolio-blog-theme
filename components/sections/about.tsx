@@ -18,12 +18,9 @@ const About = () => {
           </div>
         ))}
       </div>
-      <div className="flex gap-8 text-justify text-muted-foreground leading-6 my-8">
+      <div className="flex gap-8 text-justify text-muted-foreground leading-6">
         <p>
-          {about.description_left}
-        </p>
-        <p>
-          {about.description_right}
+          {about.description}
         </p>
       </div>
     </section>

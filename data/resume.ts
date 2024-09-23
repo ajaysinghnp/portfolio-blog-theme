@@ -27,7 +27,7 @@ export const resume = {
       company: "Nepal Rastra Bank",
       date: "[2018 Dec - Present]",
       description:
-        "Currently working as an IT Assistant at Nepal Rastra Bank. My responsibilities include managing the IT infrastructure, providing technical support to the staff, and ensuring the smooth operation of the IT systems.",
+        "I have been working as an IT assistant at the Central Bank of Nepal for nearly six years, supporting IT operations and contributing to various projects. My expertise covers system automation, scripting, and general IT support. My technical skills and innovative solutions have made me a valuable asset to the team. I am passionate about development and automation, always looking for ways to improve efficiency and implement new technologies.",
     },
   ],
   education: [

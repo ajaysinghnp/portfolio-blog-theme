@@ -12,6 +12,9 @@ const RelatedPosts = ({ tags, slug }: Props) => {
   const relatedPosts = posts.filter((post) => {
     return post.tags.some((tag) => tags?.includes(tag));
   }).filter((post) => post.slug !== slug);
+
+  if (!relatedPosts.length) return null;
+
   return (
     <section className="flex flex-col gap-2">
       <h2 className="text-lg">Related Posts</h2>

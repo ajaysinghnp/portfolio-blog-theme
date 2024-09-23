@@ -22,3 +22,8 @@ export const sortSlugAlpha = (a: { slug: string }, b: { slug: string }) =>
 
 export const sortSlugCount = (a: { count: number }, b: { count: number }) =>
   b.count - a.count;
+
+export const initials = (name: string) => {
+  const [first, last] = name.split(" ");
+  return `${first.charAt(0)}${last ? last.charAt(0) : ""}`;
+};

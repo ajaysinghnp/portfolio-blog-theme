@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section className="flex flex-col items-center justify-center border border-zinc-500/60 rounded p-8">
       <h1 className={cn(angelina.className, "text-4xl font-bold capitalize leading-[4rem] mb-4 text-purple-500")}>{about.title}</h1>
-      <p className="text-2xl text-muted-foreground mb-4 text-center text-balance">
+      <p className="text-xl text-muted-foreground mb-4 text-center text-balance tracking-wider">
         {about.quote}
       </p>
       <div className="flex my-8 px-8 w-full justify-between">

@@ -91,8 +91,8 @@ const ResumePage = () => {
       </div>
       <div className="w-full flex flex-1 flex-col gap-4">
         <Experience />
-        <Education />
         <Skills />
+        <Education />
       </div >
     </main >
   );

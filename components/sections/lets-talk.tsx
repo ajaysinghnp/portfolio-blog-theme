@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 const LetsTalk = () => {
   return (
-    <div className="px-6 py-6 sm:py-12 lg:px-8 border border-zinc-300/60 rounded">
+    <div className="px-6 py-6 sm:py-12 lg:px-8 border border-zinc-500/60 rounded">
       <div className="mx-auto flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-300">Let&apos;s Talk</h1>
         <p className="mt-3 text-lg text-zinc-400">
@@ -46,7 +46,7 @@ const LetsTalk = () => {
           <div className="sm:col-span-2">
             <label className="text-sm font-semibold leading-6 text-zinc-300">Message</label>
             <div className="mt-2.5">
-              <textarea name="message" id="message" rows={4} placeholder="Share your thoughts..." className="w-full rounded border border-zinc-300/60 px-3.5 py-2 text-zinc-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"></textarea>
+              <textarea name="message" id="message" rows={4} placeholder="Share your thoughts..." className="w-full rounded border border-zinc-300/60 px-3.5 py-2 text-zinc-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-transparent"></textarea>
             </div>
           </div>
         </div>

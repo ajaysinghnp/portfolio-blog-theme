@@ -4,6 +4,7 @@ import { angelina } from "@/components/local-fonts";
 import Social from "@/components/social";
 import { ModeToggle } from "@/components/theme-toggle";
 import { navigation } from "@/data/navigation";
+import { resume } from "@/data/resume";
 
 export default function Home() {
   return (
@@ -34,21 +35,20 @@ export default function Home() {
           angelina.className,
         ].join(" ")}
       >
-        Ajay Singh
+        {resume.name}
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       <div className="my-12 text-center animate-fade-in">
         <h2 className="text-md text-zinc-500 ">
-          &ldquo;An ultimate Success is always hidden behind the first
-          failure&rdquo; -{" "}
+          &ldquo;{resume.quote}&rdquo; -{" "}
           <Link
             target="_blank"
             href="/blog"
             className="underline duration-500 italic hover:text-zinc-300"
           >
-            Blog [Ajay Singh]
+            {resume.quote_author}
           </Link>
         </h2>
       </div>

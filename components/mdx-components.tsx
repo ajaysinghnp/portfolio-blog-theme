@@ -32,6 +32,11 @@ export const components = {
       {props.children}
     </a>
   ),
+  li: (props: any) => {
+    return <li {...props} className={cn('text-zinc-500', props.className)}>
+      {props.children}
+    </li>
+  },
   strong: (props: any) => (
     <strong {...props} className="font-bold text-zinc-400">
       {props.children}

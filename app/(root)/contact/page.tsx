@@ -1,4 +1,4 @@
-import LetsTalk from '@/components/lets-talk'
+import LetsTalk from '@/components/sections/lets-talk'
 import React from 'react'
 
 const ContactPage = () => {

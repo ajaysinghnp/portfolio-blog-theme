@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import "@/app/mdx.css";
 import { calSans } from "@/components/local-fonts";
-import { ThemeProvider } from "../providers/theme";
+import { ThemeProvider } from "@/providers/theme";
 import { cn } from "@/lib/utils";
 import Particles from "@/components/particles";
 

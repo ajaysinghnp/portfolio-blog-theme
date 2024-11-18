@@ -4,6 +4,7 @@ import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
   distDir: "build",
   output: "export",
+  basePath: "",
   reactStrictMode: true,
   images: {
     unoptimized: true,

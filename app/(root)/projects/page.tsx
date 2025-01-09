@@ -33,10 +33,10 @@ export default function ProjectsPage() {
   }
 
   const featured = projects?.find(
-    (project) => project.name === "mentormaya.github.io"
+    (project) => project.name === "ajaysinghnp.github.io"
   )!;
   const top2 = projects?.find((project) => project.name === "blog")!;
-  const top3 = projects?.find((project) => project.name === "addons-example")!;
+  const top3 = projects?.find((project) => project.name === "portfolio-blog-theme")!;
   const sorted = projects
     ?.filter(
       (project) =>
